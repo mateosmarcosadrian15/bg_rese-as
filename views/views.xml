@@ -1,0 +1,92 @@
+<odoo>
+  <data>
+    
+    <!--Lista Usuarios-->
+    <record id="view_usuarios_list" model="ir.ui.view">
+      <field name="name">bg_resenas.usuario.list</field>
+      <field name="model">bg_resenas.usuario</field>
+      <field name="arch" type="xml"> 
+        <list string="Usuarios" >
+          <field name="nombreUsuario"/>
+          <field name="email" />
+        </list> 
+      </field>
+    </record>
+    <!--Formulario Usuarios-->
+    <record id="view_usuarios_form" model="ir.ui.view">
+      <field name="name">bg_resenas.usuario.form</field>
+      <field name="model">bg_resenas.usuario</field>
+      <field name="arch" type="xml"> 
+        <form string="Usuarios">
+          <sheet>
+            <group>
+              <field name="nombreUsuario"/>
+              <field name="email"/>
+              <field name="telefono"/>
+            </group>
+            <notebook>
+              <page string="Juegos">
+                <field name="juego_id" />
+              </page>
+            </notebook>
+          </sheet>
+        </form>
+      </field>
+    </record>
+      <!--Lista Reseñas-->
+    <record id="view_resenas_list" model="ir.ui.view">
+      <field name="name">bg_resenas.resena.list</field>
+      <field name="model">bg_resenas.resena</field>
+      <field name="arch" type="xml"> 
+        <list string="Reseñas" >
+          <field name="puntuacion"/>
+        </list> 
+      </field>
+    </record>
+    <!--Formulario Reseñas-->
+    <record id="view_resenas_form" model="ir.ui.view">
+      <field name="name">bg_resenas.resena.form</field>
+      <field name="model">bg_resenas.resena</field>
+      <field name="arch" type="xml"> 
+        <form string="Reseñas">
+        <header>
+            <button name="%(action_report)d"
+              string="Imprimir Reseña"
+              type="action"
+              class="oe_highlight"
+              icon="fa-print" />
+          </header>
+          <sheet>
+            <group>
+              <field name="puntuacion"/>
+              <field name="comentario"/>
+            </group>
+            <notebook>
+              <page string="Usuario">
+                <field name="usuario_id" />
+              </page>
+            </notebook>
+          </sheet>
+        </form>
+      </field>
+    </record>
+    <!--Acciones de los menus-->
+     <record id="action_usuarios" model="ir.actions.act_window">
+      <field name="name">Usuarios</field>
+      <field name="res_model">bg_resenas.usuario</field>
+      <field name="view_mode">list,form</field>
+    </record>
+    <record id="action_resenas" model="ir.actions.act_window">
+      <field name="name">Reseñas</field>
+      <field name="res_model">bg_resenas.resena</field>
+      <field name="view_mode">list,form</field>
+    </record>
+ <!--Menu principal de usuarios-->
+    <menuitem id="menu_biblioteca_root" name="UsuariosJuegos"/>
+    <!--Menus de usuarios y reseñas-->
+    <menuitem id="menu_biblioteca_Usuarios" name="Usuarios" 
+     parent="menu_biblioteca_root" action="action_usuarios"/>
+     <menuitem id="menu_biblioteca_Resenas" name="Reseñas" 
+     parent="menu_biblioteca_root" action="action_resenas"/>
+  </data>
+</odoo>

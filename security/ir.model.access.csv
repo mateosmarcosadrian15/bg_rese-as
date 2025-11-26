@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_bg_resenas_usuario,bg_resenas.usuario,model_bg_resenas_usuario,base.group_user,1,1,1,1
+access_bg_resenas_resena,bg_resenas.reseña,model_bg_resenas_resena,base.group_user,1,1,1,1

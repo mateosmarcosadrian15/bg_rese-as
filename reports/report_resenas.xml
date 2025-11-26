@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="action_report" model="ir.actions.report">
+        <field name="name">Informe de las Reseñas</field>
+
+        <field name="model">bg_resenas.resena</field>
+
+        <field name="report_type">qweb-pdf</field>
+
+        <field name="report_name">bg_reseñas.report_resenas</field>
+
+        <field name="binding_model_id" ref="model_bg_resenas_resena"/>
+        <field name="binding_type">report</field>
+    </record>
+
+    <template id="report_resenas">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="res">
+                <t t-call="web.external_layout">
+                    <div class="page">
+                        <h2>Informe de <t t-esc="res.nombre"/></h2>
+
+                        <table class="table table-sm table-bordered" style="width:100%;">
+                            <thead>
+                                <tr>
+                                    <th>Puntuacion</th>
+                                    <th>Comentario</th>
+                                    <th>ID del Usuario de la Reseña</th>
+                                    <th>Email Usuario Reseña</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    
+                                        <td><t t-esc="res.puntuacion"/></td>
+                                        <td><t t-esc="res.comentario"/></td>
+                                        <td><t t-esc="res.usuario_id.nombreUsuario"/></td>
+                                        <td><t t-esc="res.usuario_id.email"/></td>
+                                    
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+
+</odoo>
