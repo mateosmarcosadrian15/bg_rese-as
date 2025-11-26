@@ -82,7 +82,8 @@
       <field name="view_mode">list,form</field>
     </record>
  <!--Menu principal de usuarios-->
-    <menuitem id="menu_biblioteca_root" name="UsuariosJuegos"/>
+    <menuitem id="menu_biblioteca_root" name="UsuariosJuegos"
+      web_icon="bg_reseñas,static/description/icon.png" />
     <!--Menus de usuarios y reseñas-->
     <menuitem id="menu_biblioteca_Usuarios" name="Usuarios" 
      parent="menu_biblioteca_root" action="action_usuarios"/>
