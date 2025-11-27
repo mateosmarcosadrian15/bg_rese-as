@@ -22,7 +22,7 @@ class Reseñas(models.Model):
     puntuacion = fields.Integer(string='Puntuacion',required=True)
     comentario = fields.Char(string='Comentario')
 
-    usuario_id = fields.One2many('bg_resenas.usuario','nombreUsuario',string='Usuario')
+    usuario_id = fields.Many2one('bg_resenas.usuario',string='Usuario')
 
 # class bg_reseñas(models.Model):
 #     _name = 'bg_reseñas.bg_reseñas'

@@ -26,7 +26,7 @@
                                 <tr>
                                     <th>Puntuacion</th>
                                     <th>Comentario</th>
-                                    <th>ID del Usuario de la Reseña</th>
+                                    <th>Usuario de la Reseña</th>
                                     <th>Email Usuario Reseña</th>
                                 </tr>
                             </thead>
